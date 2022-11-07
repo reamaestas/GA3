@@ -13,19 +13,47 @@
 
 <body>
 
-    <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a th:href="@{/}" class="navbar-brand">TechJobs</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a th:href="@{/search}">Search</a></li>
-                    <li><a th:href="@{/list}">List</a></li>
-                </ul>
-            </div>
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a th:href="@{/}" class="navbar-brand">TechJobs</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/search}">Search</a></li>
+                <li><a th:href="@{/list}">List</a></li>
+            </ul>
         </div>
     </div>
+</div>
 
+<table th:fragment="table" th:each = "jobs : ${jobs}" class="job-listing">
+    <tbody>
+        <tr>
+            <th scope="row">ID</th>
+            <td th:text = "${jobs.id}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Name</th>
+            <td th:text = "${jobs.name}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Employer</th>
+            <td th:text = "${jobs.employer}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Location</th>
+            <td th:text = "${jobs.location}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Position Type</th>
+            <td th:text = "${jobs.positionType}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Skill</th>
+            <td th:text = "${jobs.coreCompetency}"></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
