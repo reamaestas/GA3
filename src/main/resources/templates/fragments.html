@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/ ">
 
 <head th:fragment="head">
 
     <!-- Bootstrap stylesheets and script -->
-    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/tech-jobs.css}" rel="stylesheet"/>
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
     <title th:text="'TechJobs' + ${title == null ? '' : ' :: ' + title}">TechJobs</title>
@@ -27,33 +28,31 @@
     </div>
 </div>
 
-<table th:fragment="table" th:each = "jobs : ${jobs}" class="job-listing">
-    <tbody>
-        <tr>
-            <th scope="row">ID</th>
-            <td th:text = "${jobs.id}"></td>
-        </tr>
-        <tr>
-            <th scope="row">Name</th>
-            <td th:text = "${jobs.name}"></td>
-        </tr>
-        <tr>
-            <th scope="row">Employer</th>
-            <td th:text = "${jobs.employer}"></td>
-        </tr>
-        <tr>
-            <th scope="row">Location</th>
-            <td th:text = "${jobs.location}"></td>
-        </tr>
-        <tr>
-            <th scope="row">Position Type</th>
-            <td th:text = "${jobs.positionType}"></td>
-        </tr>
-        <tr>
-            <th scope="row">Skill</th>
-            <td th:text = "${jobs.coreCompetency}"></td>
-        </tr>
-    </tbody>
+<table th:fragment="table" th:each="jobs : ${jobs}" class="job-listing">
+    <tr>
+        <th scope="row">ID</th>
+        <td th:text="${jobs.id}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Name</th>
+        <td th:text="${jobs.name}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Employer</th>
+        <td th:text="${jobs.employer}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Location</th>
+        <td th:text="${jobs.location}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Position Type</th>
+        <td th:text="${jobs.positionType}"></td>
+    </tr>
+    <tr>
+        <th scope="row">Skill</th>
+        <td th:text="${jobs.coreCompetency}"></td>
+    </tr>
 </table>
 </body>
 </html>
